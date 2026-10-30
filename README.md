@@ -1,24 +1,33 @@
-# React + Vite
+  # Jammming
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  A React app for searching songs and building a playlist.
+  Built as a Codecademy Full Stack Engineer portfolio project.
 
-Currently, two official plugins are available:
+  ## Technologies
+  - React 19 + Vite
+  - JavaScript, JSX
+  - iTunes Search API (GET)
+  - JSONPlaceholder (POST)
+  - Pico.css
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+  ## Features
+  - Search for songs by name or artist
+  - Add songs to a playlist (+), with no duplicates
+  - Remove songs from the playlist (-)
+  - Rename the playlist
+  - Save the playlist (POST request), then reset
 
-## React Compiler
+  ## Future work
+  - Play 30-second song previews (iTunes previewUrl)
+  - Hide songs already in the playlist from the search results
+  - Show a loading message while saving
+  - Save to a real database (e.g. Firebase)
+  - Add a reset button for the search and playlist.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  ## Api 
+  - token uses the iTunes Search API instead of Spotify. iTunes needs no access token or login, so the "Obtain a Spotify Access Token" step isn't needed.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-
-## Api token uses the iTunes Search API instead of Spotify. iTunes needs no access token or login, so the "Obtain a Spotify Access Token" step isn't needed.
-
-## Testing 
+  ## Testing 
 
 
 | Test | Steps | Expected | Result |
