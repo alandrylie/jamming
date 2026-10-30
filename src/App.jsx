@@ -14,15 +14,14 @@ function App() {
 
     const [tracks, setTracks] = useState([]);
 
-    async function search(term){
-        try{
+    async function search(term) {
+        try {
             const results = await searchTracks(term);
             setTracks(results);
-        } catch (error){
+        } catch (error) {
             alert(error.message);
         }
     }
-
 
     const [playlistTracks, setPlaylistTracks] = useState([
         { id: 3, name: "Highway to Hell", artist: "AC/DC", album: "Highway to Hell" },
@@ -32,6 +31,8 @@ function App() {
         try {
             const result = await savePlaylist(playlistName, playlistTracks);
             alert(`Playlist saved! id: ${result.id}`);
+            setPlaylistName("");
+            setPlaylistTracks([]);
         } catch (error) {
             alert(error.message);
         }
