@@ -11,16 +11,25 @@ function App() {
     }
 
     const tracks = [
-        { name: "Back in Black", artist: "AC/DC", album: "Back in Blank" },
-        { name: "You Shook Me All Night Long", artist: "AC/DC", album: "Back in Black" },
-        { name: "Highway to Hell", artist: "AC/DC", album: "Highway to Hell" },
-        { name: "Thunderstruck", artist: "AC/DC", album: "The Razors Edge" }
+        { id: 1, name: "Back in Black", artist: "AC/DC", album: "Back in Blank" },
+        { id: 2, name: "You Shook Me All Night Long", artist: "AC/DC", album: "Back in Black" },
+        { id: 3, name: "Highway to Hell", artist: "AC/DC", album: "Highway to Hell" },
+        { id: 4, name: "Thunderstruck", artist: "AC/DC", album: "The Razors Edge" }
     ];
 
     const [playlistTracks, setPlaylistTracks] = useState([
-        { name: "Highway to Hell", artist: "AC/DC", album: "Highway to Hell" },
-        { name: "Thunderstruck", artist: "AC/DC", album: "The Razors Edge" }
+        { id: 3, name: "Highway to Hell", artist: "AC/DC", album: "Highway to Hell" },
+        { id: 4, name: "Thunderstruck", artist: "AC/DC", album: "The Razors Edge" }
     ]);
+
+    function addTrack(track) {
+        if (playlistTracks.some((savedTrack) => savedTrack.id === track.id)) {
+            return alert("Track already exists in the playlist");
+        }
+        setPlaylistTracks((prev) => {
+            return [track, ...prev];
+        });
+    }
 
     return (
         <div>
@@ -28,7 +37,7 @@ function App() {
                 <SearchBar />
             </div>
             <div>
-                <SearchResults SearchResults={tracks} />
+                <SearchResults SearchResults={tracks} addTrack={addTrack} />
             </div>
             <div>
                 <Playlist
