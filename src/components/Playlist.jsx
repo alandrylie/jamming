@@ -18,7 +18,7 @@ function Playlist(props) {
             </div>
 
             <div>
-                <TrackList tracks={props.TrackList} />
+                <TrackList tracks={props.TrackList} removeTrack={props.removeTrack} isRemoval={true} />
             </div>
         </div>
     );
