@@ -3,9 +3,9 @@ function Track(props) {
 
     return (
         <div>
-            <p>{props.track.name}</p>
-            <p>{props.track.artist}</p>
-            <p>{props.track.album}</p>
+            <p>Song Name: {props.track.name}</p>
+            <p>Artist: {props.track.artist}</p>
+            <p>Album: {props.track.album}</p>
         </div>
     );
 }
