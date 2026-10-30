@@ -3,19 +3,24 @@ import SearchResults from "./components/SearchResults";
 import SearchBar from "./components/SearchBar";
 import Playlist from "./components/Playlist";
 import { useState } from "react";
+import { searchTracks } from "./api/itunes.js";
 
 function App() {
-    const [playlistName, setPlaylistName] = useState("");
+    const [playlistName, setPlaylistName] = useState("My Playlist");
     function handleUserInput(e) {
         setPlaylistName(e.target.value);
     }
 
-    const tracks = [
-        { id: 1, name: "Back in Black", artist: "AC/DC", album: "Back in Blank" },
-        { id: 2, name: "You Shook Me All Night Long", artist: "AC/DC", album: "Back in Black" },
-        { id: 3, name: "Highway to Hell", artist: "AC/DC", album: "Highway to Hell" },
-        { id: 4, name: "Thunderstruck", artist: "AC/DC", album: "The Razors Edge" }
-    ];
+    const [tracks, setTracks] = useState([]);
+
+    async function search(term){
+        try{
+            const results = await searchTracks(term);
+            setTracks(results);
+        } catch (error){
+            alert(error.message);
+        }
+    }
 
     const [playlistTracks, setPlaylistTracks] = useState([
         { id: 3, name: "Highway to Hell", artist: "AC/DC", album: "Highway to Hell" },
@@ -31,10 +36,16 @@ function App() {
         });
     }
 
+    function removeTrack(track) {
+        setPlaylistTracks((prev) => {
+            return prev.filter((savedTrack) => savedTrack.id !== track.id);
+        });
+    }
+
     return (
         <div>
             <div>
-                <SearchBar />
+                <SearchBar search={search} />
             </div>
             <div>
                 <SearchResults SearchResults={tracks} addTrack={addTrack} />
@@ -44,6 +55,7 @@ function App() {
                     TrackList={playlistTracks}
                     playlistName={playlistName}
                     handleUserInput={handleUserInput}
+                    removeTrack={removeTrack}
                 />
             </div>
         </div>
