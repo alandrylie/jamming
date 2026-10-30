@@ -1,5 +1,6 @@
 import "./App.css";
 import SearchResults from "./components/SearchResults";
+import SearchBar from "./components/SearchBar";
 
 function App() {
     const tracks = [
@@ -10,7 +11,13 @@ function App() {
     ];
     return (
         <div>
-            <SearchResults SearchResults={tracks}/></div>
-    )
+            <div>
+                <SearchBar/>
+            </div>
+            <div>
+                <SearchResults SearchResults={tracks} />
+            </div>
+        </div>
+    );
 }
 export default App;
