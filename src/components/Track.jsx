@@ -2,10 +2,12 @@ function Track(props) {
     if (!props.track) return <p>No track found</p>;
 
     return (
-        <div>
-            <p>Song Name: {props.track.name}</p>
-            <p>Artist: {props.track.artist}</p>
-            <p>Album: {props.track.album}</p>
+        <div className="track">
+            <div>
+                <p className="track-name">Song Name: {props.track.name}</p>
+                <p className="track-info">Artist: {props.track.artist}</p>
+                <p className="track-info">Album: {props.track.album}</p>
+            </div>
             {props.isRemoval ? (
                 <button onClick={() => props.removeTrack(props.track)}> - </button>
             ) : (

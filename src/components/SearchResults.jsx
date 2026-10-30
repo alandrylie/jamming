@@ -3,7 +3,7 @@ import TrackList from "./TrackList";
 function SearchResults(props) {
     
     return (
-        <div>
+        <div className="panel">
             <h2>Search Results</h2>
             <TrackList tracks={props.SearchResults}  addTrack={props.addTrack}/>
         </div>

@@ -7,7 +7,7 @@ function Playlist(props) {
           props.save()
       }
     return (
-        <div>
+        <div className="panel">
             <div>
                 <h2>Play list</h2>
                 <form onSubmit={handleSubmit}>
@@ -18,7 +18,7 @@ function Playlist(props) {
                         value={props.playlistName}
                         onChange={props.handleUserInput}
                     />
-                    <button type="submit">Save Playlist</button>
+                    <button className="btn" type="submit">Save Playlist</button>
                 </form>
             </div>
 

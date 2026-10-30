@@ -54,15 +54,15 @@ function App() {
     }
 
     return (
-        <div>
+        <div className="app">
+            <h1 className="title">Ja<span>mmm</span>ing</h1>
             <div>
                 <SearchBar search={search} />
             </div>
-            <div>
+            <div className="columns">
                 <SearchResults SearchResults={tracks} addTrack={addTrack} />
-            </div>
-            <div>
-                <Playlist
+           
+                <Playlist 
                     TrackList={playlistTracks}
                     playlistName={playlistName}
                     handleUserInput={handleUserInput}

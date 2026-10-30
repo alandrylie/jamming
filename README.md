@@ -8,7 +8,7 @@
   - JavaScript, JSX
   - iTunes Search API (GET)
   - JSONPlaceholder (POST)
-  - Pico.css
+ 
 
   ## Features
   - Search for songs by name or artist
@@ -38,4 +38,7 @@
 | **Rename** | Click the title, type new name, and save | Playlist reflects the new name | :white_check_mark: |
 | **Save** | Click save, | Playlist changes are saved; interface clears back to default | :white_check_mark: |
 
+
+## Styling
+  (App.css) written with AI assistance; all React Components and logic written by me.
 
