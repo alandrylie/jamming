@@ -1,14 +1,6 @@
 import TrackList from "./TrackList.jsx";
-import { useState } from "react";
 
 function Playlist(props) {
-    const [userInput, setUserInput] = useState('')
-    function handleUserInput(e) {
-        setUserInput(e.target.value);
-    }
-
-
-
     return (
         <div>
             <div>
@@ -18,8 +10,8 @@ function Playlist(props) {
                     <input
                         type="text"
                         id="playListName"
-                        value={userInput}
-                        onChange={handleUserInput}
+                        value={props.playlistName}
+                        onChange={props.handleUserInput}
                     />
                     <button type="submit">Save Playlist</button>
                 </form>
