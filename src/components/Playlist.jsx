@@ -1,11 +1,16 @@
 import TrackList from "./TrackList.jsx";
 
 function Playlist(props) {
+
+      function handleSubmit(e) {
+          e.preventDefault();
+          props.save()
+      }
     return (
         <div>
             <div>
                 <h2>Play list</h2>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="playlistName">Playlist Name</label>
                     <input
                         type="text"

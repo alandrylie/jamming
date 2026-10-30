@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import Playlist from "./components/Playlist";
 import { useState } from "react";
 import { searchTracks } from "./api/itunes.js";
+import { savePlaylist } from "./api/jsonplaceholder.js";
 
 function App() {
     const [playlistName, setPlaylistName] = useState("My Playlist");
@@ -22,10 +23,19 @@ function App() {
         }
     }
 
+
     const [playlistTracks, setPlaylistTracks] = useState([
         { id: 3, name: "Highway to Hell", artist: "AC/DC", album: "Highway to Hell" },
         { id: 4, name: "Thunderstruck", artist: "AC/DC", album: "The Razors Edge" }
     ]);
+    async function save() {
+        try {
+            const result = await savePlaylist(playlistName, playlistTracks);
+            alert(`Playlist saved! id: ${result.id}`);
+        } catch (error) {
+            alert(error.message);
+        }
+    }
 
     function addTrack(track) {
         if (playlistTracks.some((savedTrack) => savedTrack.id === track.id)) {
@@ -56,6 +66,7 @@ function App() {
                     playlistName={playlistName}
                     handleUserInput={handleUserInput}
                     removeTrack={removeTrack}
+                    save={save}
                 />
             </div>
         </div>
