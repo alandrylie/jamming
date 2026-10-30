@@ -21,7 +21,7 @@
 
   ## Future work
   - Play 30-second song previews (iTunes previewUrl)
-  - Hide songs already in the playlist from the search results
+  - Hide songs already in the playlist from the search results ([design doc](https://docs.google.com/document/d/11Ih73-30y2ee2d6hO4znIWm8gCvG7vpmXVLV9kbv3mY/edit?usp=sharing))
   - Show a loading message while saving
   - Save to a real database (e.g. Firebase)
   - Add a reset button for the search and playlist.
